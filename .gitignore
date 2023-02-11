@@ -1,0 +1,12 @@
+frontend/ios
+frontend/macos
+frontend/android
+frontend/linux
+frontend/web
+frontend/windows
+frontend/.metadata
+
+
+
+.DS_Store
+backend/functions/__pycache__/__init__.cpython-311.pyc
