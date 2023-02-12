@@ -1,3 +1,4 @@
+from fastapi import FastAPI, Response, UploadFile
 from fastapi import FastAPI
 #importing functions from function folder
 
@@ -19,6 +20,11 @@ def phone_detected():
         return {'message': True}
 
     return {'message': False}
+
+@app.get("/phone_in_frame/")
+def phone_img():
+    image_file = open("snapshot.jpg", "rb")
+    return Response(content=image_file, media_type="image/jpeg")
 
     
 
