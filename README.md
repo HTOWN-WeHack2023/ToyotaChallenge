@@ -65,3 +65,6 @@ Make sure ./yolo-coco/data/ contains coco.names, yolo.weights, and yolov3.cfg
 - **Mapbox**: a mapping and location cloud platform for developers and designers to build real-time location awareness into their apps.
 - **YOLOv3**: real-time object detection algorithm that identifies specific objects in videos, live feeds, or images.
 - **COCO**: is a large-scale object detection, segmentation, and captioning dataset. COCO has several features: Object segmentation, Recognition in context, Superpixel stuff segmentation, 330K images (>200K labeled), 1.5 million object instances, 80 object categories, 91 stuff categories, 5 captions per image, 250,000 people with keypoints
+
+### App Preview
+
