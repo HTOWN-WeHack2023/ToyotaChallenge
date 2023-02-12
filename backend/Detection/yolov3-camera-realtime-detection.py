@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 Objects Detection in Real Time with YOLO v3 and OpenCV
 File: yolov3-camera-realtime-detection.py
@@ -41,6 +39,14 @@ h, w = None, None
 """
 End of: Reading stream video from camera
 """
+
+
+def stop_printing():
+    print("PHONE DETECTED!!!!")
+    time.sleep(30)
+
+
+
 
 
 """
@@ -143,7 +149,7 @@ while True:
     end = time.time()
 
     # Showing spent time for single current frame
-    print('Current frame took {:.5f} seconds'.format(end - start))
+    #print('Current frame took {:.5f} seconds'.format(end - start))
 
     """
     End of:
@@ -225,12 +231,19 @@ while True:
     ==================     STEP7   ===================
     Start of: Drawing bounding boxes and labels
     """
-
+    phone = False
     # Checking if there is at least one detected object
     # after non-maximum suppression
     if len(results) > 0:
         # Going through indexes of results
         for i in results.flatten():
+            if labels[classIDs[i]] == "cell phone":
+                phone = True
+                if(phone == True):
+                    print('PHONE DETECTED!!!')
+                    print('==================')
+                #stop_printing()
+
             # Getting current bounding box coordinates, its width and height
             x_min, y_min = bounding_boxes[i][0], bounding_boxes[i][1]
             box_width, box_height = bounding_boxes[i][2], bounding_boxes[i][3]
