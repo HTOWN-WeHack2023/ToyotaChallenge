@@ -82,17 +82,19 @@ class _MapViewState extends State<MapView> {
           _locationService.onLocationChanged
               .listen((LocationData result) async {
             if (mounted) {
-              setState(() {
-                _currentLocation = result;
+              setState(
+                () {
+                  _currentLocation = result;
 
-                // If Live Update is enabled, move map center
-                if (_liveUpdate) {
-                  _mapController!.move(
-                      LatLng(_currentLocation!.latitude!,
-                          _currentLocation!.longitude!),
-                      _mapController!.zoom);
-                }
-              });
+                  // If Live Update is enabled, move map center
+                  if (_liveUpdate) {
+                    _mapController!.move(
+                        LatLng(_currentLocation!.latitude!,
+                            _currentLocation!.longitude!),
+                        _mapController!.zoom);
+                  }
+                },
+              );
             }
           });
         }
@@ -161,6 +163,14 @@ class _MapViewState extends State<MapView> {
 
     initLocationService();
     super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    // animationController.dispose() instead of your controller.dispose
+    _mapController!.dispose();
   }
 
   @override
@@ -256,10 +266,12 @@ class _MapViewState extends State<MapView> {
                 interActiveFlags =
                     InteractiveFlag.pinchZoom | InteractiveFlag.doubleTapZoom;
 
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text(
-                      'In live update mode only zoom and rotation are enable'),
-                ));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text(
+                        'In live update mode only zoom and rotation are enable'),
+                  ),
+                );
               } else {
                 interActiveFlags = InteractiveFlag.pinchZoom |
                     InteractiveFlag.doubleTapZoom |

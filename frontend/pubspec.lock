@@ -129,7 +129,7 @@ packages:
     source: sdk
     version: "0.0.0"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -142,6 +142,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.2"
+  http_pro:
+    dependency: "direct main"
+    description:
+      name: http_pro
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.0"
   intl:
     dependency: transitive
     description:
