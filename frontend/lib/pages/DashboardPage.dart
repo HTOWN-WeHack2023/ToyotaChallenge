@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
-  DashboardPage({Key? key}) : super(key: key);
+  DashboardPage({Key key}) : super(key: key);
 
   @override
   State<DashboardPage> createState() => _DashboardPageState();
@@ -29,15 +29,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               Icon(Icons.arrow_drop_down),
               // ignore: prefer_const_constructors
-              SizedBox(width: 50),
-              IconButton(
-                onPressed: (() {}),
-                // ignore: prefer_const_constructors
-                icon: Icon(
-                  Icons.dark_mode_outlined,
-                  size: 40,
-                ),
-              ),
+              SizedBox(width: 120),
               IconButton(
                 onPressed: (() {}),
                 // ignore: prefer_const_constructors
@@ -88,45 +80,46 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         Stack(children: [
           Container(
-              padding: EdgeInsets.fromLTRB(30, 0, 20, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RawMaterialButton(
-                    onPressed: () {},
-                    elevation: 2.0,
-                    fillColor: Colors.white,
-                    child: Icon(
-                      Icons.lock_open_rounded,
-                      size: 50.0,
-                    ),
-                    padding: EdgeInsets.all(15.0),
-                    shape: CircleBorder(),
+            padding: EdgeInsets.fromLTRB(30, 0, 20, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                RawMaterialButton(
+                  onPressed: () {},
+                  elevation: 2.0,
+                  fillColor: Colors.white,
+                  child: Icon(
+                    Icons.lock_open_rounded,
+                    size: 50.0,
                   ),
-                  RawMaterialButton(
-                    onPressed: () {},
-                    elevation: 2.0,
-                    fillColor: Colors.white,
-                    padding: EdgeInsets.all(15.0),
-                    shape: CircleBorder(),
-                    child: Icon(
-                      Icons.power_settings_new,
-                      size: 50.0,
-                    ),
+                  padding: EdgeInsets.all(15.0),
+                  shape: CircleBorder(),
+                ),
+                RawMaterialButton(
+                  onPressed: () {},
+                  elevation: 2.0,
+                  fillColor: Colors.white,
+                  padding: EdgeInsets.all(15.0),
+                  shape: CircleBorder(),
+                  child: Icon(
+                    Icons.power_settings_new,
+                    size: 50.0,
                   ),
-                  RawMaterialButton(
-                    onPressed: () {},
-                    elevation: 2.0,
-                    fillColor: Colors.white,
-                    child: Icon(
-                      Icons.lock_outline_rounded,
-                      size: 50.0,
-                    ),
-                    padding: EdgeInsets.all(15.0),
-                    shape: CircleBorder(),
+                ),
+                RawMaterialButton(
+                  onPressed: () {},
+                  elevation: 2.0,
+                  fillColor: Colors.white,
+                  child: Icon(
+                    Icons.lock_outline_rounded,
+                    size: 50.0,
                   ),
-                ],
-              )),
+                  padding: EdgeInsets.all(15.0),
+                  shape: CircleBorder(),
+                ),
+              ],
+            ),
+          ),
         ]),
         Container(
           child: Stack(
@@ -152,14 +145,14 @@ class _DashboardPageState extends State<DashboardPage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
+                            // border: Border.all(
+                            //   color: Colors.grey,
+                            // ),
                             borderRadius: BorderRadius.circular(
                                 10) // use instead of BorderRadius.all(Radius.circular(20))
                             ),
                         height: 75.0,
-                        width: 350.0,
+                        width: 375,
                         child: Container(
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -168,11 +161,11 @@ class _DashboardPageState extends State<DashboardPage> {
                               BoxShadow(
                                 color: Colors.grey,
                                 offset: const Offset(
-                                  5.0,
-                                  5.0,
+                                  .0,
+                                  2.0,
                                 ),
-                                blurRadius: 10.0,
-                                spreadRadius: 1.0,
+                                blurRadius: .5,
+                                spreadRadius: .6,
                               ),
                             ],
                             color: Colors.white,
@@ -227,14 +220,14 @@ class _DashboardPageState extends State<DashboardPage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
+                            // border: Border.all(
+                            //   color: Colors.grey,
+                            // ),
                             borderRadius: BorderRadius.circular(
                                 10) // use instead of BorderRadius.all(Radius.circular(20))
                             ),
                         height: 75.0,
-                        width: 350.0,
+                        width: 375,
                         child: Container(
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -243,11 +236,11 @@ class _DashboardPageState extends State<DashboardPage> {
                               BoxShadow(
                                 color: Colors.grey,
                                 offset: const Offset(
-                                  5.0,
-                                  5.0,
+                                  .0,
+                                  2.0,
                                 ),
-                                blurRadius: 10.0,
-                                spreadRadius: 1.0,
+                                blurRadius: .5,
+                                spreadRadius: .6,
                               ),
                             ],
                             color: Colors.white,
@@ -302,14 +295,14 @@ class _DashboardPageState extends State<DashboardPage> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
+                            // border: Border.all(
+                            //   color: Colors.grey,
+                            // ),
                             borderRadius: BorderRadius.circular(
                                 10) // use instead of BorderRadius.all(Radius.circular(20))
                             ),
                         height: 75.0,
-                        width: 350.0,
+                        width: 375,
                         child: Container(
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -318,11 +311,11 @@ class _DashboardPageState extends State<DashboardPage> {
                               BoxShadow(
                                 color: Colors.grey,
                                 offset: const Offset(
-                                  5.0,
-                                  5.0,
+                                  .0,
+                                  2.0,
                                 ),
-                                blurRadius: 10.0,
-                                spreadRadius: 1.0,
+                                blurRadius: .5,
+                                spreadRadius: .6,
                               ),
                             ],
                             color: Colors.white,

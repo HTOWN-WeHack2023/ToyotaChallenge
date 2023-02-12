@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend/maps/MapView.dart';
+import '/maps/MapView.dart';
+import '/maps/NavigationStarter.dart';
 
 class FindPage extends StatefulWidget {
-  FindPage({this.mapProvider, this.pageController, Key? key}) : super(key: key);
+  FindPage({this.mapProvider, this.pageController, Key key}) : super(key: key);
   final mapProvider;
   final pageController;
   @override
@@ -54,22 +55,23 @@ class _FindPageState extends State<FindPage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        setState(() {
-                          widget.pageController.changePageViewIndex(1);
-                        });
+                        widget.pageController.changePageViewIndex(1);
                       },
-                      child: Text('Phone Detected'),
+                      child: Text('Alert'),
                       style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.red)),
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            widget.mapProvider.triggerLocate();
-                          });
-                        },
-                        child: Text('Locate'))
+                    // ElevatedButton(
+                    //   onPressed: () {
+                    //     setState(() {
+                    //       widget.mapProvider.triggerLocate();
+                    //     });
+                    //   },
+                    //   child: Text('Locate'),
+                    // )
+
+                    NavigationStarter()
                   ],
                 ),
               ),
@@ -92,7 +94,7 @@ class _FindPageState extends State<FindPage> {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         Text(
-                          '2022 RAV4',
+                          '2012 Camry',
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -103,7 +105,10 @@ class _FindPageState extends State<FindPage> {
                         ),
                       ],
                     ),
-                    ElevatedButton(onPressed: () {}, child: Text('Locate'))
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Locate'),
+                    )
                   ],
                 ),
               ),

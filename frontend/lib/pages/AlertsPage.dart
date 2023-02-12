@@ -6,19 +6,37 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend/providers/AlertProvider.dart';
+import '/providers/AlertProvider.dart';
 
 class AlertPage extends StatefulWidget {
-  const AlertPage({this.alertProvider, Key? key}) : super(key: key);
+  const AlertPage({this.alertProvider, Key key}) : super(key: key);
   final alertProvider;
 
   @override
   State<AlertPage> createState() => _AlertPageState();
 }
 
+String _currentTime = '';
+String _currentDate = '';
 final alerts = [];
 
 class _AlertPageState extends State<AlertPage> {
+  String _currentDate = '';
+  @override
+  void initState() {
+    super.initState();
+
+    _getCurrentDate();
+  }
+
+  void _getCurrentDate() {
+    final DateTime now = DateTime.now();
+    final String formattedDate = "${now.month}-${now.day}-${now.year}";
+    setState(() {
+      _currentDate = formattedDate;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final alertRequest = FutureProvider<Map>(
@@ -43,7 +61,13 @@ class _AlertPageState extends State<AlertPage> {
               alerts.add('value');
             }
           },
-          loading: () => Center(child: CircularProgressIndicator()),
+          loading: () => Container(
+            height: 300,
+            width: MediaQuery.of(context).size.width,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
           error: (e, s) => CircularProgressIndicator(color: Colors.red),
         );
         return Container(
@@ -53,12 +77,12 @@ class _AlertPageState extends State<AlertPage> {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 15),
+                    padding: const EdgeInsets.only(left: 20, top: 40),
                     child: Title(
                         color: Colors.black,
                         child: Text('Notifications',
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold))),
+                                fontSize: 30, fontWeight: FontWeight.bold))),
                   ),
                   Spacer()
                 ],
@@ -67,15 +91,48 @@ class _AlertPageState extends State<AlertPage> {
                 height: 700,
                 child: ListView.builder(
                   itemCount: alerts.length,
+                  // itemCount: 1,
                   itemBuilder: (context, index) {
                     return Container(
                       margin: EdgeInsets.only(left: 10, bottom: 8, right: 10),
-                      height: 70,
+                      padding: EdgeInsets.all(10),
+                      height: 85,
                       width: 50,
-                      child: Text('Item $index'),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Distracted Driver',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.red),
+                              ),
+                              Text(
+                                'Ben is distracted by his phone!',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: 5),
+                              Text('Date: $_currentDate'),
+                            ],
+                          ),
+                          Icon(
+                            Icons.phone_android,
+                            size: 50,
+                          )
+                        ],
+                      ),
                       decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.all(Radius.circular(12))),
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12),
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -87,33 +144,3 @@ class _AlertPageState extends State<AlertPage> {
     );
   }
 }
-
-// class ImagePage extends StatefulWidget {
-//   @override
-//   _ImagePageState createState() => _ImagePageState();
-// }
-
-// class _ImagePageState extends State<ImagePage> {
-//   Future<File> _getImageFile() async {
-//     var response =
-//         await http.get(Uri.parse("http://localhost:8000/phone_in_frame"));
-//     var file = File.fromRawPath(response.bodyBytes);
-//     return file;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: FutureBuilder<File>(
-//         future: _getImageFile(),
-//         builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
-//           if (snapshot.hasData) {
-//             return Image.file(snapshot.data!);
-//           } else {
-//             return Center(child: CircularProgressIndicator());
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }

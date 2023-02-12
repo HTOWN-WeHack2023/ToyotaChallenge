@@ -2,16 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend/pages/AlertsPage.dart';
-import 'package:frontend/pages/DashboardPage.dart';
-import 'package:frontend/pages/FindPage.dart';
-import 'package:frontend/providers/AlertProvider.dart';
-import 'package:frontend/providers/MapControlProvider.dart';
-import 'package:frontend/providers/PageProvider.dart';
-import 'package:frontend/providers/ThemeProvider.dart';
+import '/pages/AlertsPage.dart';
+import '/pages/DashboardPage.dart';
+import '/pages/FindPage.dart';
+import '/providers/AlertProvider.dart';
+import '/providers/MapControlProvider.dart';
+import '/providers/PageProvider.dart';
+import '/providers/ThemeProvider.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key}) : super(key: key);
+  MainPage({Key key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -66,6 +66,7 @@ class _MainPageState extends State<MainPage> {
                     : FindPage(
                         mapProvider: mapProvider,
                         pageController: pageController),
+            // ),
             Container(
               height: 120,
               width: MediaQuery.of(context).size.width,
