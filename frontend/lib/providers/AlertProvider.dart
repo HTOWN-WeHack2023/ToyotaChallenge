@@ -1,13 +1,13 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+// ignore_for_file: file_names
+import 'package:flutter/material.dart';
 
-final accountBalanceData = FutureProvider<Map>(
-  (ref) async {
-    // String apiUrl = '127.0.0.1:8000';
-    // String apiUrl = '173.255.195.217:8080';
-    final response = await http.get(Uri.parse(''));
-    final extract = jsonDecode(response.body);
-    return Future.value(extract);
-  },
-);
+class AlertProvider extends ChangeNotifier {
+  List alerts = [];
+
+  getAlerts() => alerts;
+
+  void addAlert(String alert) {
+    alerts.add(alert);
+    notifyListeners();
+  }
+}
