@@ -6,7 +6,10 @@ frontend/web
 frontend/windows
 frontend/.metadata
 
-
-
+backend\__pycache__
+backend\functions\__pycache__
 .DS_Store
 backend/functions/__pycache__/__init__.cpython-311.pyc
+backend/functions/__pycache__/__init__.cpython-310.pyc
+backend/yolo-coco-data/yolov3.weights
+backend/functions/__pycache__/detect_phone.cpython-310.pyc
