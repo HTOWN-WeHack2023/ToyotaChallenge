@@ -5,8 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend/maps/MapView.dart';
 
 class FindPage extends StatefulWidget {
-  FindPage({this.mapProvider, Key? key}) : super(key: key);
+  FindPage({this.mapProvider, this.pageController, Key? key}) : super(key: key);
   final mapProvider;
+  final pageController;
   @override
   State<FindPage> createState() => _FindPageState();
 }
@@ -52,8 +53,12 @@ class _FindPageState extends State<FindPage> {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Fast Driver'),
+                      onPressed: () {
+                        setState(() {
+                          widget.pageController.changePageViewIndex(1);
+                        });
+                      },
+                      child: Text('Phone Detected'),
                       style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.red)),

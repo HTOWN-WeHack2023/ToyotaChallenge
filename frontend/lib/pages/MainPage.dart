@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend/pages/AlertsPage.dart';
 import 'package:frontend/pages/DashboardPage.dart';
 import 'package:frontend/pages/FindPage.dart';
+import 'package:frontend/providers/AlertProvider.dart';
 import 'package:frontend/providers/MapControlProvider.dart';
 import 'package:frontend/providers/PageProvider.dart';
 import 'package:frontend/providers/ThemeProvider.dart';
@@ -34,6 +35,10 @@ final mapControllerProvider = ChangeNotifierProvider<MapControlProvider>(
   },
 );
 
+final alertProvider = ChangeNotifierProvider<AlertProvider>((ref) {
+  return AlertProvider();
+});
+
 class _MainPageState extends State<MainPage> {
   @override
   void initState() {
@@ -58,7 +63,9 @@ class _MainPageState extends State<MainPage> {
                 ? AlertPage()
                 : pageController.index == 2
                     ? DashboardPage()
-                    : FindPage(mapProvider: mapProvider),
+                    : FindPage(
+                        mapProvider: mapProvider,
+                        pageController: pageController),
             Container(
               height: 120,
               width: MediaQuery.of(context).size.width,
@@ -155,65 +162,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-
-// Consumer(
-                  //   builder: ((context, ref, child) {
-                  //     print(
-                  //         'CURRENT PAGE : ${pageController.getPageViewIndex()}');
-                  //     switch (pageController.getPageViewIndex()) {
-                  //       case 1:
-                  //         return FindPage();
-
-                  //       case 2:
-                  //         return DashboardPage();
-
-                  //       case 3:
-                  //         return FindPage();
-
-                  //       default:
-                  //         return DashboardPage();
-                  //     }
-                  //   }),
-                  // ),
-
-// backgroundColor: Colors.grey,
-// body: PageView(
-//   physics: const NeverScrollableScrollPhysics(),
-//   controller: pageController,
-//   children: <Widget>[
-//     SettingPage(themeProvider),
-//   ],
-// ),
-// bottomNavigationBar: WaterDropNavBar(
-//   backgroundColor: Colors.grey[600]!,
-//   waterDropColor: themeState.appTheme == CustomTheme.light
-//       ? Colors.white
-//       : Colors.grey[800]!,
-//   onItemSelected: (int index) {
-//     setState(() {
-//       selectedIndex = index;
-//     });
-//     pageController.animateToPage(selectedIndex,
-//         duration: const Duration(milliseconds: 400),
-//         curve: Curves.easeOutQuad);
-//   },
-//   selectedIndex: selectedIndex,
-//   barItems: <BarItem>[
-//     BarItem(
-//       outlinedIcon: Icons.handyman_outlined,
-//       filledIcon: Icons.handyman_rounded,
-//     ),
-//     BarItem(
-//         outlinedIcon: Icons.monetization_on_outlined,
-//         filledIcon: Icons.monetization_on),
-//     BarItem(
-//       filledIcon: Icons.store_rounded,
-//       outlinedIcon: Icons.store_outlined,
-//     ),
-//     BarItem(
-//       outlinedIcon: Icons.location_on_outlined,
-//       filledIcon: Icons.location_on_sharp,
-//     ),
-//   ],
-// ),
