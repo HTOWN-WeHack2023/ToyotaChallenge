@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:frontend/pages/AlertsPage.dart';
 import 'package:frontend/pages/DashboardPage.dart';
 import 'package:frontend/pages/FindPage.dart';
+import 'package:frontend/providers/MapControlProvider.dart';
 import 'package:frontend/providers/PageProvider.dart';
 import 'package:frontend/providers/ThemeProvider.dart';
 
@@ -27,6 +28,12 @@ final pageViewProvider = ChangeNotifierProvider<PageViewProvider>(
   },
 );
 
+final mapControllerProvider = ChangeNotifierProvider<MapControlProvider>(
+  (ref) {
+    return MapControlProvider();
+  },
+);
+
 class _MainPageState extends State<MainPage> {
   @override
   void initState() {
@@ -39,6 +46,7 @@ class _MainPageState extends State<MainPage> {
       builder: (context, ref, child) {
         final themeState = ref.watch(themeProvider);
         final pageController = ref.watch(pageViewProvider);
+        final mapProvider = ref.watch(mapControllerProvider);
 
         print('Current page index: ${pageController.index}');
 
@@ -50,7 +58,7 @@ class _MainPageState extends State<MainPage> {
                 ? AlertPage()
                 : pageController.index == 2
                     ? DashboardPage()
-                    : FindPage(),
+                    : FindPage(mapProvider: mapProvider),
             Container(
               height: 120,
               width: MediaQuery.of(context).size.width,

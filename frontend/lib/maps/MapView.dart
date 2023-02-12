@@ -2,6 +2,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:frontend/providers/MapControlProvider.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:flutter_map/plugin_api.dart';
@@ -9,7 +11,8 @@ import './zoomButton.dart';
 import 'package:positioned_tap_detector_2/positioned_tap_detector_2.dart';
 
 class MapView extends StatefulWidget {
-  MapView({Key? key}) : super(key: key);
+  MapView({this.mapProvider, Key? key}) : super(key: key);
+  final mapProvider;
 
   @override
   State<MapView> createState() => _MapViewState();
@@ -21,7 +24,7 @@ class _MapViewState extends State<MapView> {
 //   / /__/ _ \/ __/ _ `/ __/ / _ \/ _ \
 //  /____/\___/\__/\_,_/\__/_/\___/_//_/
 
-  late final MapController _mapController;
+  MapController? _mapController;
   final pointSize = 40.0;
   final pointY = 100.0;
 
@@ -34,7 +37,7 @@ class _MapViewState extends State<MapView> {
   late LatLng latLng;
   LocationData? _currentLocation;
   bool _permission = false;
-  bool _liveUpdate = true;
+  bool _liveUpdate = false;
   String? _serviceError = '';
   var circleMarkers = <CircleMarker>[];
 
@@ -84,10 +87,10 @@ class _MapViewState extends State<MapView> {
 
                 // If Live Update is enabled, move map center
                 if (_liveUpdate) {
-                  _mapController.move(
+                  _mapController!.move(
                       LatLng(_currentLocation!.latitude!,
                           _currentLocation!.longitude!),
-                      _mapController.zoom);
+                      _mapController!.zoom);
                 }
               });
             }
@@ -118,10 +121,19 @@ class _MapViewState extends State<MapView> {
   void _updatePointLatLng(BuildContext context) {
     final pointX = _getPointX(context);
 
-    final latLng = _mapController.pointToLatLng(CustomPoint(pointX, pointY));
+    final latLng = _mapController!.pointToLatLng(CustomPoint(pointX, pointY));
 
     setState(() {
       this.latLng = latLng!;
+    });
+  }
+
+  void redirectView(BuildContext context, Map point) {
+    print('######################################################');
+
+    _mapController!.move(LatLng(point['x'], point['y']), _mapController!.zoom);
+    setState(() {
+      // this.latLng = latLng!;
     });
   }
 
@@ -140,21 +152,24 @@ class _MapViewState extends State<MapView> {
     _mapController = MapController();
     super.initState();
 
-    mapEventSubscription = _mapController.mapEventStream
+    mapEventSubscription = _mapController!.mapEventStream
         .listen((mapEvent) => onMapEvent(mapEvent, context));
 
     Future.delayed(Duration.zero, () {
-      _mapController.onReady.then((_) => _updatePointLatLng(context));
+      _mapController!.onReady.then((_) => _updatePointLatLng(context));
     });
 
     initLocationService();
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
     LatLng currentLatLng;
+    bool startRedirect = widget.mapProvider.isRedirected();
     // Until currentLocation is initially updated, Widget can locate to 0, 0
     // by default or store previous location value to show.
+
     if (_currentLocation != null) {
       currentLatLng =
           LatLng(_currentLocation!.latitude!, _currentLocation!.longitude!);
@@ -169,10 +184,15 @@ class _MapViewState extends State<MapView> {
         point: currentLatLng,
         builder: (ctx) => const Icon(
           Icons.location_on,
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
     ];
+
+    // print(startRedirect);
+    if (startRedirect) {
+      redirectView(context, widget.mapProvider.point);
+    }
 
     // widget.locationProperty['point'] = circleMarkers;
     return Stack(
@@ -183,7 +203,7 @@ class _MapViewState extends State<MapView> {
               bottomRight: Radius.circular(10)),
           child: SizedBox(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * .6,
+            height: MediaQuery.of(context).size.height * .55,
             child: FlutterMap(
               mapController: _mapController,
               options: MapOptions(

@@ -30,7 +30,7 @@ class MaterialAppWithTheme extends ConsumerWidget {
       theme: themeState.appTheme == CustomTheme.light
           ? ThemeData(
               buttonTheme: const ButtonThemeData(buttonColor: Colors.amber),
-              primarySwatch: Colors.green,
+              primarySwatch: Colors.blueGrey,
               backgroundColor: Colors.grey[400],
             )
           : ThemeData(
