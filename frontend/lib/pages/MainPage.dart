@@ -75,65 +75,73 @@ class _MainPageState extends State<MainPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         // Assist Button
-                        Column(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  pageController.changePageViewIndex(1);
-                                });
-                              },
-                              icon: Icon(
-                                Icons.notifications_none,
-                                color: Colors.grey,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Column(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    pageController.changePageViewIndex(1);
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.notifications_none,
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'Alerts',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ],
+                              Text(
+                                'Alerts',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
+                          ),
                         ),
                         // Dash Button Button
                         Column(
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [
                             InkWell(
-                              onTap: (() {
-                                setState(() {
-                                  pageController.changePageViewIndex(2);
-                                });
-                              }),
-                              child: CircleAvatar(
+                                onTap: (() {
+                                  setState(() {
+                                    pageController.changePageViewIndex(2);
+                                  });
+                                }),
+                                child: CircleAvatar(
                                   minRadius: 35,
                                   backgroundColor: Colors.red,
-                                  child: Icon(
-                                    Icons.car_crash_rounded,
-                                    size: 35,
-                                    color: Colors.white,
-                                  )),
-                            )
+                                  child: Container(
+                                    height: 40,
+                                    child: Image.asset(
+                                      "assets/car.png",
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )),
                           ],
                         ),
                         // Find Button
-                        Column(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  pageController.changePageViewIndex(3);
-                                });
-                              },
-                              icon: Icon(
-                                Icons.location_on_outlined,
-                                color: Colors.grey,
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10.0),
+                          child: Column(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    pageController.changePageViewIndex(3);
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.location_on_outlined,
+                                  color: Colors.grey,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'Find',
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          ],
+                              Text(
+                                'Find',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

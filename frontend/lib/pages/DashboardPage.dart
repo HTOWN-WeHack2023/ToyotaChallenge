@@ -128,289 +128,252 @@ class _DashboardPageState extends State<DashboardPage> {
                 ],
               )),
         ]),
-        Stack(
-          children: [
-            Positioned(
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: const Offset(
-                        5.0,
-                        5.0,
-                      ),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ),
-                  ],
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
+        Container(
+          child: Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(30, 25, 20, 0),
                   ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Remote & Sharing',
-                      style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    Icon(Icons.keyboard_arrow_down_outlined),
-                  ],
-                ),
-                height: 40.0,
-                width: 140.0,
-              ),
-              left: 100,
-              top: 10,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(30, 40, 20, 0),
-                ),
-                Column(
-                  children: [
-                    Container(
-                      child: Divider(color: Colors.grey[700]),
-                      width: 350,
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                ),
-                Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                              10) // use instead of BorderRadius.all(Radius.circular(20))
-                          ),
-                      height: 75.0,
-                      width: 350.0,
-                      child: Container(
-                        padding: EdgeInsets.all(10),
+                  Column(
+                    children: [
+                      Container(
+                        child: Divider(color: Colors.grey[700]),
+                        width: 350,
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                  ),
+                  Column(
+                    children: [
+                      Container(
                         decoration: BoxDecoration(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          boxShadow: [
-                            BoxShadow(
+                            border: Border.all(
                               color: Colors.grey,
-                              offset: const Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
                             ),
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10.0),
+                            borderRadius: BorderRadius.circular(
+                                10) // use instead of BorderRadius.all(Radius.circular(20))
+                            ),
+                        height: 75.0,
+                        width: 350.0,
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: const Offset(
+                                  5.0,
+                                  5.0,
+                                ),
+                                blurRadius: 10.0,
+                                spreadRadius: 1.0,
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.grey[300],
-                              child: Icon(
-                                Icons.car_repair_outlined,
-                                color: Colors.blue[900],
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.grey[300],
+                                child: Icon(
+                                  Icons.car_repair_outlined,
+                                  color: Colors.blue[900],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Vehicle Status",
-                                  style: TextStyle(
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.left,
-                                ),
-                                Text(
-                                  "Closed and locked",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.grey[600],
-                                      fontWeight: FontWeight.normal),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ],
-                            ),
-                          ],
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Vehicle Status",
+                                    style: TextStyle(
+                                        fontSize: 23,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    "Closed and locked",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.grey[600],
+                                        fontWeight: FontWeight.normal),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                ),
-                Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                              10) // use instead of BorderRadius.all(Radius.circular(20))
-                          ),
-                      height: 75.0,
-                      width: 350.0,
-                      child: Container(
-                        padding: EdgeInsets.all(10),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                  ),
+                  Column(
+                    children: [
+                      Container(
                         decoration: BoxDecoration(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          boxShadow: [
-                            BoxShadow(
+                            border: Border.all(
                               color: Colors.grey,
-                              offset: const Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
                             ),
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10.0),
+                            borderRadius: BorderRadius.circular(
+                                10) // use instead of BorderRadius.all(Radius.circular(20))
+                            ),
+                        height: 75.0,
+                        width: 350.0,
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: const Offset(
+                                  5.0,
+                                  5.0,
+                                ),
+                                blurRadius: 10.0,
+                                spreadRadius: 1.0,
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.grey[300],
-                              child: Icon(
-                                Icons.notifications_active_outlined,
-                                color: Colors.blue[900],
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.grey[300],
+                                child: Icon(
+                                  Icons.notifications_active_outlined,
+                                  color: Colors.blue[900],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Health & Alerts",
-                                  style: TextStyle(
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.left,
-                                ),
-                                Text(
-                                  "No recalls or vehicle alerts ",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.grey[600],
-                                      fontWeight: FontWeight.normal),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ],
-                            ),
-                          ],
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Health & Alerts",
+                                    style: TextStyle(
+                                        fontSize: 23,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    "No recalls or vehicle alerts ",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.grey[600],
+                                        fontWeight: FontWeight.normal),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                ),
-                Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                              10) // use instead of BorderRadius.all(Radius.circular(20))
-                          ),
-                      height: 75.0,
-                      width: 350.0,
-                      child: Container(
-                        padding: EdgeInsets.all(10),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                  ),
+                  Column(
+                    children: [
+                      Container(
                         decoration: BoxDecoration(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          boxShadow: [
-                            BoxShadow(
+                            border: Border.all(
                               color: Colors.grey,
-                              offset: const Offset(
-                                5.0,
-                                5.0,
-                              ),
-                              blurRadius: 10.0,
-                              spreadRadius: 1.0,
                             ),
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10.0),
+                            borderRadius: BorderRadius.circular(
+                                10) // use instead of BorderRadius.all(Radius.circular(20))
+                            ),
+                        height: 75.0,
+                        width: 350.0,
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            // ignore: prefer_const_literals_to_create_immutables
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset: const Offset(
+                                  5.0,
+                                  5.0,
+                                ),
+                                blurRadius: 10.0,
+                                spreadRadius: 1.0,
+                              ),
+                            ],
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.grey[300],
-                              child: Icon(
-                                Icons.calendar_month_outlined,
-                                color: Colors.blue[900],
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.grey[300],
+                                child: Icon(
+                                  Icons.calendar_month_outlined,
+                                  color: Colors.blue[900],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Service Appointments",
-                                  style: TextStyle(
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.left,
-                                ),
-                                Text(
-                                  "Maintenance up to date ",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.grey[600],
-                                      fontWeight: FontWeight.normal),
-                                  textAlign: TextAlign.left,
-                                ),
-                              ],
-                            ),
-                          ],
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Service Appointments",
+                                    style: TextStyle(
+                                        fontSize: 23,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  Text(
+                                    "Maintenance up to date ",
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.grey[600],
+                                        fontWeight: FontWeight.normal),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
         )
       ]),
     );

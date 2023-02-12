@@ -29,24 +29,16 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  cupertino_icons: ^1.0.2
   flutter_map: ^1.1.0
   flutter_riverpod: ^2.1.3
-<<<<<<< HEAD
   http: ^0.13.5
   http_pro: ^1.4.0
   location: ^4.2.0
   poly_geofence_service: ^1.5.8
-=======
-  water_drop_nav_bar: ^2.2.0+5
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  persistent_bottom_nav_bar: ^5.0.2
->>>>>>> 5c19640 (Created Dashboard)
+  flutter_native_splash:
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -61,15 +53,14 @@ flutter:
 
   assets:
     - assets/camry.png
+    - assets/car.png
+    - assets/toyota.png
+    - assets/background.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
-<<<<<<< HEAD
-  uses-material-design: true
-=======
 
->>>>>>> 5c19640 (Created Dashboard)
   # To add assets to your application, add an assets section, like this:
 
   #   - images/a_dot_ham.jpeg
