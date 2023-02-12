@@ -194,6 +194,15 @@ def detect_phone():
                 if labels[classIDs[i]] == "cell phone":
                     phone = True
                     if(phone == True):
+                        #read the camera frame and prepare to open the image
+                        ret, frame = camera.read()
+                        # Save the frame to a file
+                        cv2.imwrite('snapshot.jpg', frame)
+                        # Load the saved snapshot
+                        snapshot = cv2.imread('snapshot.jpg')
+                        # Display the snapshot on the screen
+                        cv2.imshow('Snapshot', snapshot)
+                        #write response in text file
                         with open('isPhoneDetected.txt', 'w') as file:
                             file.write('true')                       
                         return True
