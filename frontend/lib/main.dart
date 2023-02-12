@@ -26,7 +26,7 @@ class MaterialAppWithTheme extends ConsumerWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {'home': (context) => MainPage()},
-      title: 'Flutter Demo',
+      title: 'Toyota App',
       theme: themeState.appTheme == CustomTheme.light
           ? ThemeData(
               buttonTheme: const ButtonThemeData(buttonColor: Colors.amber),
@@ -55,26 +55,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Center(
-          child: SizedBox(
-            width: 100,
-            height: 100,
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed('home');
-                print("Clicked");
-              },
-              child: const Center(
-                  child: Text(
-                'WeHack',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )),
-            ),
-          ),
-        ),
-      ),
-    );
+    return MainPage();
   }
 }
