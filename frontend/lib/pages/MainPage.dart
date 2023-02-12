@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:frontend/pages/AlertsPage.dart';
 import 'package:frontend/pages/DashboardPage.dart';
 import 'package:frontend/pages/FindPage.dart';
 import 'package:frontend/providers/PageProvider.dart';
@@ -45,7 +46,11 @@ class _MainPageState extends State<MainPage> {
             body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            pageController.index == 1 ? FindPage() : DashboardPage(),
+            pageController.index == 1
+                ? AlertPage()
+                : pageController.index == 2
+                    ? DashboardPage()
+                    : FindPage(),
             Container(
               height: 120,
               width: MediaQuery.of(context).size.width,
