@@ -6,6 +6,7 @@ frontend/web
 frontend/windows
 frontend/.metadata
 
+backend_copy
 backend\__pycache__
 backend\functions\__pycache__
 .DS_Store

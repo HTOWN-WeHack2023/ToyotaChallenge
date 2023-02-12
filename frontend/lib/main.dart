@@ -30,7 +30,7 @@ class MaterialAppWithTheme extends ConsumerWidget {
       theme: themeState.appTheme == CustomTheme.light
           ? ThemeData(
               buttonTheme: const ButtonThemeData(buttonColor: Colors.amber),
-              primarySwatch: Colors.green,
+              primarySwatch: Colors.blueGrey,
               backgroundColor: Colors.grey[400],
             )
           : ThemeData(
@@ -38,7 +38,7 @@ class MaterialAppWithTheme extends ConsumerWidget {
               primaryColor: Colors.grey[800],
               backgroundColor: Colors.grey[700],
             ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Toyota'),
     );
   }
 }
