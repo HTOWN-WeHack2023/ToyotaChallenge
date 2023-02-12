@@ -11,7 +11,7 @@ class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
 
   @override
-  State<MainPage> createState() => _SettingsPageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
 final themeProvider = ChangeNotifierProvider<ThemeProviderNotifier>(
@@ -20,128 +20,116 @@ final themeProvider = ChangeNotifierProvider<ThemeProviderNotifier>(
   },
 );
 
-class _SettingsPageState extends State<MainPage> {
-  int selectedIndex = 0;
-  late PageController pageController;
+final pageViewProvider = ChangeNotifierProvider<PageViewProvider>(
+  (ref) {
+    return PageViewProvider();
+  },
+);
+
+class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    pageController = PageController(initialPage: selectedIndex);
   }
 
-  // final dockColor = themeState.appTheme == CustomTheme.light
-  //     ? Colors.grey[200]
-  //     : Colors.grey[900];
   @override
   Widget build(BuildContext context) {
-    final pageViewProvider = ChangeNotifierProvider<PageViewProvider>(
-      (ref) {
-        return PageViewProvider();
-      },
-    );
-
     return Consumer(
       builder: (context, ref, child) {
         final themeState = ref.watch(themeProvider);
+        final pageController = ref.watch(pageViewProvider);
+
+        print('Current page index: ${pageController.index}');
 
         return Scaffold(
-          body: Consumer(
-            builder: (context, ref, child) {
-              final pageController = ref.watch(pageViewProvider);
-
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.end,
+            body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            pageController.index == 1 ? FindPage() : DashboardPage(),
+            Container(
+              height: 120,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  pageController.getPageViewIndex() == 1
-                      ? FindPage()
-                      : DashboardPage(),
+                  Divider(
+                    color: Colors.grey,
+                    thickness: 1,
+                  ),
                   Container(
-                    height: 120,
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      // ignore: prefer_const_literals_to_create_immutables
+                    padding: EdgeInsets.only(left: 30, right: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
+                        // Assist Button
+                        Column(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  pageController.changePageViewIndex(1);
+                                });
+                              },
+                              icon: Icon(
+                                Icons.notifications_none,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              'Alerts',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
                         ),
-                        Container(
-                          padding: EdgeInsets.only(left: 30, right: 30),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              // Assist Button
-                              Column(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        pageController.changePageViewIndex(1);
-                                      });
-                                    },
-                                    icon: Icon(
-                                      Icons.notifications_none,
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Alerts',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ],
+                        // Dash Button Button
+                        Column(
+                          // ignore: prefer_const_literals_to_create_immutables
+                          children: [
+                            InkWell(
+                              onTap: (() {
+                                setState(() {
+                                  pageController.changePageViewIndex(2);
+                                });
+                              }),
+                              child: CircleAvatar(
+                                  minRadius: 35,
+                                  backgroundColor: Colors.red,
+                                  child: Icon(
+                                    Icons.car_crash_rounded,
+                                    size: 35,
+                                    color: Colors.white,
+                                  )),
+                            )
+                          ],
+                        ),
+                        // Find Button
+                        Column(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  pageController.changePageViewIndex(3);
+                                });
+                              },
+                              icon: Icon(
+                                Icons.location_on_outlined,
+                                color: Colors.grey,
                               ),
-                              // Dash Button Button
-                              Column(
-                                // ignore: prefer_const_literals_to_create_immutables
-                                children: [
-                                  InkWell(
-                                    onTap: (() {
-                                      setState(() {
-                                        pageController.changePageViewIndex(2);
-                                      });
-                                    }),
-                                    child: CircleAvatar(
-                                        minRadius: 35,
-                                        backgroundColor: Colors.red,
-                                        child: Icon(
-                                          Icons.car_crash_rounded,
-                                          size: 35,
-                                          color: Colors.white,
-                                        )),
-                                  )
-                                ],
-                              ),
-                              // Find Button
-                              Column(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        pageController.changePageViewIndex(3);
-                                      });
-                                    },
-                                    icon: Icon(
-                                      Icons.location_on_outlined,
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Find',
-                                    style: TextStyle(color: Colors.grey),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
+                            ),
+                            Text(
+                              'Find',
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   )
                 ],
-              );
-            },
-          ),
-        );
+              ),
+            )
+          ],
+        ));
       },
     );
   }

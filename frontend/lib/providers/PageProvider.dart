@@ -2,7 +2,7 @@
 import 'package:flutter/foundation.dart';
 
 class PageViewProvider extends ChangeNotifier {
-  late int index;
+  int index = 1;
   getPageViewIndex() => index;
 
   void changePageViewIndex(int changeIndex) {
