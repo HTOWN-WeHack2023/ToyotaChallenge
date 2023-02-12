@@ -18,9 +18,7 @@
 
 ### F**rontend:**
 
-Make sure flutter is installed on your PC 
-
-[Install](https://docs.flutter.dev/get-started/install)
+Make sure flutter is [**installed**](https://docs.flutter.dev/get-started/install) on your PC 
 
 If flutter is installed navigate into the ToyotaChallenge/frontend/ directory and run 
 
