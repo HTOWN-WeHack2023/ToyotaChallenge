@@ -38,8 +38,14 @@ Before going into the installation make sure to setup a virtual environment with
 
 **Dependencies:**
 
-- YOLO
-- OpenCV
+<ul>
+    <li> 
+        <a href="https://pjreddie.com/darknet/yolo/" >YOLO</a>
+    </li>
+    <li>
+        <a href="https://opencv.org/" >OpenCV</a>
+    </li>
+</ul>
 
 For YOLO you must download yolo.weights and place the file in the ToyotaChallenge/backend/yolo-coco-data/ directory
 
