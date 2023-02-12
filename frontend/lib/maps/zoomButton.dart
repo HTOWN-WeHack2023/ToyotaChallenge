@@ -7,16 +7,16 @@ class ZoomButtonsPluginOption extends LayerOptions {
   final bool mini;
   final double padding;
   final Alignment alignment;
-  final Color? zoomInColor;
-  final Color? zoomInColorIcon;
-  final Color? zoomOutColor;
-  final Color? zoomOutColorIcon;
+  final Color zoomInColor;
+  final Color zoomInColorIcon;
+  final Color zoomOutColor;
+  final Color zoomOutColorIcon;
   final IconData zoomInIcon;
   final IconData zoomOutIcon;
-  int? interactiveFlags;
+  int interactiveFlags;
 
   ZoomButtonsPluginOption({
-    Key? key,
+    Key key,
     this.minZoom = 1,
     this.maxZoom = 18,
     this.mini = true,
@@ -29,7 +29,7 @@ class ZoomButtonsPluginOption extends LayerOptions {
     this.zoomOutColorIcon,
     this.zoomOutIcon = Icons.zoom_out,
     this.interactiveFlags,
-    Stream<void>? rebuild,
+    Stream<void> rebuild,
   }) : super(key: key, rebuild: rebuild);
 }
 

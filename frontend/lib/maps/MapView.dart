@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend/providers/MapControlProvider.dart';
+import '/providers/MapControlProvider.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:flutter_map/plugin_api.dart';
@@ -11,7 +11,7 @@ import './zoomButton.dart';
 import 'package:positioned_tap_detector_2/positioned_tap_detector_2.dart';
 
 class MapView extends StatefulWidget {
-  MapView({this.mapProvider, Key? key}) : super(key: key);
+  MapView({this.mapProvider, Key key}) : super(key: key);
   final mapProvider;
 
   @override
@@ -24,21 +24,21 @@ class _MapViewState extends State<MapView> {
 //   / /__/ _ \/ __/ _ `/ __/ / _ \/ _ \
 //  /____/\___/\__/\_,_/\__/_/\___/_//_/
 
-  MapController? _mapController;
+  MapController _mapController;
   final pointSize = 40.0;
   final pointY = 100.0;
 
   var interActiveFlags = InteractiveFlag.pinchZoom |
       InteractiveFlag.doubleTapZoom |
       InteractiveFlag.drag;
-  late final StreamSubscription<MapEvent> mapEventSubscription;
+  StreamSubscription<MapEvent> mapEventSubscription;
 
   final Location _locationService = Location();
-  late LatLng latLng;
-  LocationData? _currentLocation;
+  LatLng latLng;
+  LocationData _currentLocation;
   bool _permission = false;
   bool _liveUpdate = false;
-  String? _serviceError = '';
+  String _serviceError = '';
   var circleMarkers = <CircleMarker>[];
 
   void _handleTap(LatLng latlng) {
@@ -65,7 +65,7 @@ class _MapViewState extends State<MapView> {
       interval: 1000,
     );
 
-    LocationData? location;
+    LocationData location;
     bool serviceEnabled;
     bool serviceRequestResult;
 
@@ -88,10 +88,10 @@ class _MapViewState extends State<MapView> {
 
                   // If Live Update is enabled, move map center
                   if (_liveUpdate) {
-                    _mapController!.move(
-                        LatLng(_currentLocation!.latitude!,
-                            _currentLocation!.longitude!),
-                        _mapController!.zoom);
+                    _mapController.move(
+                        LatLng(_currentLocation.latitude,
+                            _currentLocation.longitude),
+                        _mapController.zoom);
                   }
                 },
               );
@@ -123,17 +123,17 @@ class _MapViewState extends State<MapView> {
   void _updatePointLatLng(BuildContext context) {
     final pointX = _getPointX(context);
 
-    final latLng = _mapController!.pointToLatLng(CustomPoint(pointX, pointY));
+    final latLng = _mapController.pointToLatLng(CustomPoint(pointX, pointY));
 
     setState(() {
-      this.latLng = latLng!;
+      this.latLng = latLng;
     });
   }
 
   void redirectView(BuildContext context, Map point) {
     print('######################################################');
 
-    _mapController!.move(LatLng(point['x'], point['y']), _mapController!.zoom);
+    _mapController.move(LatLng(point['x'], point['y']), _mapController.zoom);
     setState(() {
       // this.latLng = latLng!;
     });
@@ -154,11 +154,11 @@ class _MapViewState extends State<MapView> {
     _mapController = MapController();
     super.initState();
 
-    mapEventSubscription = _mapController!.mapEventStream
+    mapEventSubscription = _mapController.mapEventStream
         .listen((mapEvent) => onMapEvent(mapEvent, context));
 
     Future.delayed(Duration.zero, () {
-      _mapController!.onReady.then((_) => _updatePointLatLng(context));
+      _mapController.onReady.then((_) => _updatePointLatLng(context));
     });
 
     initLocationService();
@@ -170,7 +170,7 @@ class _MapViewState extends State<MapView> {
     // TODO: implement dispose
     super.dispose();
     // animationController.dispose() instead of your controller.dispose
-    _mapController!.dispose();
+    _mapController.dispose();
   }
 
   @override
@@ -182,7 +182,7 @@ class _MapViewState extends State<MapView> {
 
     if (_currentLocation != null) {
       currentLatLng =
-          LatLng(_currentLocation!.latitude!, _currentLocation!.longitude!);
+          LatLng(_currentLocation.latitude, _currentLocation.longitude);
     } else {
       currentLatLng = LatLng(32.98553539125427, -96.75051562289052);
     }

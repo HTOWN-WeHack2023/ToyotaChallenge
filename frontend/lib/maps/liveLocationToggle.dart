@@ -7,15 +7,15 @@ class LiveLocationButtonPluginOption extends LayerOptions {
   final bool mini;
   final double padding;
   final Alignment alignment;
-  final Color? zoomInColor;
-  final Color? zoomInColorIcon;
-  final Color? zoomOutColor;
-  final Color? zoomOutColorIcon;
+  final Color zoomInColor;
+  final Color zoomInColorIcon;
+  final Color zoomOutColor;
+  final Color zoomOutColorIcon;
   final IconData zoomInIcon;
   final IconData zoomOutIcon;
 
   LiveLocationButtonPluginOption({
-    Key? key,
+    Key key,
     this.minZoom = 1,
     this.maxZoom = 18,
     this.mini = true,
@@ -27,7 +27,7 @@ class LiveLocationButtonPluginOption extends LayerOptions {
     this.zoomOutColor,
     this.zoomOutColorIcon,
     this.zoomOutIcon = Icons.zoom_out,
-    Stream<void>? rebuild,
+    Stream<void> rebuild,
   }) : super(key: key, rebuild: rebuild);
 }
 
