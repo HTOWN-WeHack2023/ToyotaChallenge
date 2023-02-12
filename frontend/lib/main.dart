@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mapbox_navigation_example/providers/ThemeProvider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frontend/pages/MainPage.dart';
-import 'package:frontend/providers/ThemeProvider.dart';
+import './pages/MainPage.dart';
 
 void main() {
   runApp(
@@ -18,7 +18,7 @@ final themeProvider = ChangeNotifierProvider<ThemeProviderNotifier>(
 );
 
 class MaterialAppWithTheme extends ConsumerWidget {
-  const MaterialAppWithTheme({Key? key}) : super(key: key);
+  const MaterialAppWithTheme({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -38,13 +38,13 @@ class MaterialAppWithTheme extends ConsumerWidget {
               primaryColor: Colors.grey[800],
               backgroundColor: Colors.grey[700],
             ),
-      home: const MyHomePage(title: 'Toyota'),
+      home: const MyHomePage('Toyota'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage(this.title);
 
   final String title;
 
