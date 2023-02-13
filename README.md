@@ -1,5 +1,5 @@
 # Toyota Challenge
-**Secoond place winner🏆**
+**Second place winner🏆**
 
 - **What does our app do?**
     
