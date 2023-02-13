@@ -3,7 +3,7 @@
 
 - **What does our app do?**
     
-    The Toyota Safety and Convenience Package elevates driving experiences with cutting-edge technology. The Houston Hackers joined forces to develop an innovative app that combines **Machine Learning**, **GeoLocation**, and **Turn-by-Turn Navigation**. This synergistic approach aims to curb dangerous cell phone usage while driving and ensure the safety of drivers. By sending notifications to loved ones of any cell phone usage during driving and providing real-time location tracking, the app empowers drivers and their families with peace of mind.
+    [**The Toyota Safety and Convenience Package**](https://devpost.com/software/toyota-safety-and-convenience-package) elevates driving experiences with cutting-edge technology. The Houston Hackers joined forces to develop an innovative app that combines **Machine Learning**, **GeoLocation**, and **Turn-by-Turn Navigation**. This synergistic approach aims to curb dangerous cell phone usage while driving and ensure the safety of drivers. By sending notifications to loved ones of any cell phone usage during driving and providing real-time location tracking, the app empowers drivers and their families with peace of mind.
     
 - **What type of technology was used within the app?(Libraries, ML model, GeoLocation and Turn by turn tracking)**
     - **Turn-by-Turn navigation and GeoLocation tracking with MapBox API** 
