@@ -8,7 +8,7 @@
 - **What type of technology was used within the app?(Libraries, ML model, GeoLocation and Turn by turn tracking)**
     - **Turn-by-Turn navigation and GeoLocation tracking with MapBox API** 
     - **YOLOv3 object detection ML model trained on the COCO dataset leveraged with OpenCV**
-- **Why does Toyota benefit from using our features in the app? (protect children and prevent bad habits from developing)**
+- **Why does Toyota benefit from using the features in our package?**
     - The use of our app's features offers numerous benefits for Toyota. By prioritizing the protection of teenagers and preventing bad habits from developing, Toyota not only demonstrates its commitment to safety but also establishes itself as a leader in innovation and caution within the automotive industry. This focus on customer well-being sets Toyota apart from its competitors and builds trust and loyalty among its customers, as it is clear that the company is not solely focused on profits, but places a high value on ensuring the safety and security of its users. In turn, this enhances Toyota's reputation as the most responsible and innovative car manufacturer, further solidifying its position as a trusted brand in the minds of consumers.
 - **What Tech Stack was used**
     - Dart and the Flutter framework for the UI and Python with FastAPI for the backend
