@@ -1,6 +1,5 @@
-frontend/ios
+
 frontend/macos
-frontend/android
 frontend/linux
 frontend/web
 frontend/windows
@@ -16,3 +15,4 @@ backend/yolo-coco-data/yolov3.weights
 backend/functions/__pycache__/detect_phone.cpython-310.pyc
 backend/functions/yolo-coco-data/yolov3.weights
 backend/functions/__pycache__/server.cpython-310.pyc
+frontend/build/
