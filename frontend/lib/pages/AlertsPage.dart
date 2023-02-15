@@ -144,33 +144,3 @@ class _AlertPageState extends State<AlertPage> {
     );
   }
 }
-
-// class ImagePage extends StatefulWidget {
-//   @override
-//   _ImagePageState createState() => _ImagePageState();
-// }
-
-// class _ImagePageState extends State<ImagePage> {
-//   Future<File> _getImageFile() async {
-//     var response =
-//         await http.get(Uri.parse("http://localhost:8000/phone_in_frame"));
-//     var file = File.fromRawPath(response.bodyBytes);
-//     return file;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: FutureBuilder<File>(
-//         future: _getImageFile(),
-//         builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
-//           if (snapshot.hasData) {
-//             return Image.file(snapshot.data!);
-//           } else {
-//             return Center(child: CircularProgressIndicator());
-//           }
-//         },
-//       ),
-//     );
-//   }
-// }
