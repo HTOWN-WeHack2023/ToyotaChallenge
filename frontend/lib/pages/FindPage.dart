@@ -62,15 +62,6 @@ class _FindPageState extends State<FindPage> {
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.red)),
                     ),
-                    // ElevatedButton(
-                    //   onPressed: () {
-                    //     setState(() {
-                    //       widget.mapProvider.triggerLocate();
-                    //     });
-                    //   },
-                    //   child: Text('Locate'),
-                    // )
-
                     NavigationStarter()
                   ],
                 ),
@@ -106,7 +97,11 @@ class _FindPageState extends State<FindPage> {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          widget.mapProvider.triggerLocate();
+                        });
+                      },
                       child: Text('Locate'),
                     )
                   ],

@@ -156,7 +156,7 @@ packages:
   flutter_mapbox_navigation:
     dependency: "direct main"
     description:
-      path: ".."
+      path: "libraries/flutter_mapbox_navigation"
       relative: true
     source: path
     version: "0.1.0"

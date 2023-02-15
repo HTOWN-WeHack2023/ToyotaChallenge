@@ -1,0 +1,128 @@
+PODS:
+  - fl_location (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_foreground_task (0.0.1):
+    - Flutter
+  - flutter_mapbox_navigation (0.1.0):
+    - Flutter
+    - MapboxCoreNavigation (~> 2.0)
+    - MapboxNavigation (~> 2.1)
+  - flutter_native_splash (0.0.1):
+    - Flutter
+  - http_pro (0.0.1):
+    - Flutter
+  - location (0.0.1):
+    - Flutter
+  - MapboxCommon (20.1.2)
+  - MapboxCoreMaps (10.1.1):
+    - MapboxCommon (~> 20.1)
+  - MapboxCoreNavigation (2.1.1):
+    - MapboxDirections (~> 2.1)
+    - MapboxMobileEvents (~> 1.0)
+    - MapboxNavigationNative (~> 80.0)
+  - MapboxDirections (2.1.0):
+    - Polyline (~> 5.0)
+    - Turf (~> 2.0)
+  - MapboxMaps (10.1.2):
+    - MapboxCommon (= 20.1.2)
+    - MapboxCoreMaps (= 10.1.1)
+    - MapboxMobileEvents (= 1.0.6)
+    - Turf (~> 2.0)
+  - MapboxMobileEvents (1.0.6)
+  - MapboxNavigation (2.1.1):
+    - MapboxCoreNavigation (= 2.1.1)
+    - MapboxMaps (< 11.0.0, >= 10.1.1)
+    - MapboxMobileEvents (~> 1.0)
+    - MapboxSpeech (~> 2.0)
+    - Solar-dev (~> 3.0)
+  - MapboxNavigationNative (80.0.2):
+    - MapboxCommon (~> 20.1)
+  - MapboxSpeech (2.0.0)
+  - poly_geofence_service (0.0.1):
+    - Flutter
+  - Polyline (5.0.2)
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - shared_preferences_ios (0.0.1):
+    - Flutter
+  - Solar-dev (3.0.1)
+  - Turf (2.1.0)
+
+DEPENDENCIES:
+  - fl_location (from `.symlinks/plugins/fl_location/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_foreground_task (from `.symlinks/plugins/flutter_foreground_task/ios`)
+  - flutter_mapbox_navigation (from `.symlinks/plugins/flutter_mapbox_navigation/ios`)
+  - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
+  - http_pro (from `.symlinks/plugins/http_pro/ios`)
+  - location (from `.symlinks/plugins/location/ios`)
+  - poly_geofence_service (from `.symlinks/plugins/poly_geofence_service/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
+
+SPEC REPOS:
+  trunk:
+    - MapboxCommon
+    - MapboxCoreMaps
+    - MapboxCoreNavigation
+    - MapboxDirections
+    - MapboxMaps
+    - MapboxMobileEvents
+    - MapboxNavigation
+    - MapboxNavigationNative
+    - MapboxSpeech
+    - Polyline
+    - Solar-dev
+    - Turf
+
+EXTERNAL SOURCES:
+  fl_location:
+    :path: ".symlinks/plugins/fl_location/ios"
+  Flutter:
+    :path: Flutter
+  flutter_foreground_task:
+    :path: ".symlinks/plugins/flutter_foreground_task/ios"
+  flutter_mapbox_navigation:
+    :path: ".symlinks/plugins/flutter_mapbox_navigation/ios"
+  flutter_native_splash:
+    :path: ".symlinks/plugins/flutter_native_splash/ios"
+  http_pro:
+    :path: ".symlinks/plugins/http_pro/ios"
+  location:
+    :path: ".symlinks/plugins/location/ios"
+  poly_geofence_service:
+    :path: ".symlinks/plugins/poly_geofence_service/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+  shared_preferences_ios:
+    :path: ".symlinks/plugins/shared_preferences_ios/ios"
+
+SPEC CHECKSUMS:
+  fl_location: 68b4a6c4aad2a453493ff66f196e0748280cf43e
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_foreground_task: 21ef182ab0a29a3005cc72cd70e5f45cb7f7f817
+  flutter_mapbox_navigation: 610546173415f6be90702ed9b91765db806b4b22
+  flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
+  http_pro: 5792c4088bb694d02bdc76f118d0dbef4a960909
+  location: 3a2eed4dd2fab25e7b7baf2a9efefe82b512d740
+  MapboxCommon: f15bb4cc4810d8d72e2d72bf2295f3f0cb328b11
+  MapboxCoreMaps: ee3d7f31efbbafe81ce33907b6a96066e111a244
+  MapboxCoreNavigation: 90cfee78d9a7aeada16468e6ad9cbf425c41acc3
+  MapboxDirections: f9787126bb46a3c9164978761ccdafccdbad1220
+  MapboxMaps: e4c4620a76b9e26a5d6cae10ffee5681a135b3de
+  MapboxMobileEvents: 14d7ac3ee95b4142c4fec2205dfd48ff453e8871
+  MapboxNavigation: ae52148971b92fd0b5735b15db7f5b1feb13906f
+  MapboxNavigationNative: 5319134183246da72d3ad7f4d4089452ce450167
+  MapboxSpeech: e4ed02984444b6373374c72c369edaf045cc490c
+  poly_geofence_service: 05fa38f0cf2bf17dbe37d55bae47201ebf634f9f
+  Polyline: fce41d72e1146c41c6d081f7656827226f643dff
+  shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca
+  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  Solar-dev: 4612dc9878b9fed2667d23b327f1d4e54e16e8d0
+  Turf: d1220730a00b50a9fb5862c1fb6a5dd698c9e367
+
+PODFILE CHECKSUM: fb082d9de3a2e4f36c52beadeceee6ed957d99c6
+
+COCOAPODS: 1.11.3
