@@ -1,12 +1,10 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, sized_box_for_whitespace, prefer_const_constructors_in_immutables, prefer_typing_uninitialized_variables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '/maps/MapView.dart';
 import '/maps/NavigationStarter.dart';
 
 class FindPage extends StatefulWidget {
-  FindPage({this.mapProvider, this.pageController, Key key}) : super(key: key);
+  FindPage({this.mapProvider, this.pageController, Key? key}) : super(key: key);
   final mapProvider;
   final pageController;
   @override

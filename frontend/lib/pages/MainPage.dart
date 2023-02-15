@@ -51,7 +51,6 @@ class _MainPageState extends State<MainPage> {
       builder: (context, ref, child) {
         final themeState = ref.watch(themeProvider);
         final pageController = ref.watch(pageViewProvider);
-        final mapProvider = ref.watch(mapControllerProvider);
 
         print('Current page index: ${pageController.index}');
 

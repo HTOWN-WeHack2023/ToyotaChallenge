@@ -9,7 +9,7 @@ def detect_phone():
     # Preparing variables for spatial dimensions of the frames
     h, w = None, None
     # Loading COCO class labels from file
-    with open('../yolo-coco-data/coco.names') as f:
+    with open('./yolo-coco-data/coco.names') as f:
         # Getting labels reading every line
         # and putting them into the list
         labels = [line.strip() for line in f]
@@ -18,8 +18,8 @@ def detect_phone():
     # print(labels)
 
     # Loading trained YOLO v3 Objects Detector with the help of 'dnn' library from OpenCV
-    network = cv2.dnn.readNetFromDarknet('../yolo-coco-data/yolov3.cfg',
-                                        '../yolo-coco-data/yolov3.weights')
+    network = cv2.dnn.readNetFromDarknet('./yolo-coco-data/yolov3.cfg',
+                                        './yolo-coco-data/yolov3.weights')
 
     # Getting list with names of all layers from YOLO v3 network
     layers_names_all = network.getLayerNames()
@@ -197,11 +197,8 @@ def detect_phone():
                         #read the camera frame and prepare to open the image
                         ret, frame = camera.read()
                         # Save the frame to a file
-                        cv2.imwrite('snapshot.jpg', frame)
                         # Load the saved snapshot
-                        snapshot = cv2.imread('snapshot.jpg')
                         # Display the snapshot on the screen
-                        cv2.imshow('Snapshot', snapshot)
                         #write response in text file
                         with open('isPhoneDetected.txt', 'w') as file:
                             file.write('true')                       

@@ -162,7 +162,6 @@ class _MapViewState extends State<MapView> {
     });
 
     initLocationService();
-    super.didChangeDependencies();
   }
 
   @override
@@ -176,10 +175,8 @@ class _MapViewState extends State<MapView> {
   @override
   Widget build(BuildContext context) {
     LatLng currentLatLng;
-    bool startRedirect = widget.mapProvider.isRedirected();
     // Until currentLocation is initially updated, Widget can locate to 0, 0
     // by default or store previous location value to show.
-
     if (_currentLocation != null) {
       currentLatLng =
           LatLng(_currentLocation.latitude, _currentLocation.longitude);
@@ -194,15 +191,10 @@ class _MapViewState extends State<MapView> {
         point: currentLatLng,
         builder: (ctx) => const Icon(
           Icons.location_on,
-          color: Colors.black,
+          color: Colors.white,
         ),
       ),
     ];
-
-    // print(startRedirect);
-    if (startRedirect) {
-      redirectView(context, widget.mapProvider.point);
-    }
 
     // widget.locationProperty['point'] = circleMarkers;
     return Stack(
@@ -213,7 +205,7 @@ class _MapViewState extends State<MapView> {
               bottomRight: Radius.circular(10)),
           child: SizedBox(
             width: double.infinity,
-            height: MediaQuery.of(context).size.height * .55,
+            height: MediaQuery.of(context).size.height * .6,
             child: FlutterMap(
               mapController: _mapController,
               options: MapOptions(
